@@ -2,68 +2,63 @@ package co.com.claro.appservices.domain;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import co.com.claro.appservices.entity.Usuario;
+import co.com.claro.appservices.repository.IUsuarioRepository;
 
 public class UsuarioService implements ICrudService<Usuario, Long> {
-
+	
+	@Autowired
+	private IUsuarioRepository repository;
+	
 	@Override
 	public Usuario save(Usuario entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
 
 	@Override
 	public Iterable<Usuario> saveAll(Iterable<Usuario> entities) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.saveAll(entities);
 	}
 
 	@Override
 	public Optional<Usuario> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
 
 	@Override
 	public boolean existsById(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return repository.existsById(id);
 	}
 
 	@Override
 	public Iterable<Usuario> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return repository.count();
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(id);
 	}
 
 	@Override
 	public void delete(Usuario entity) {
-		// TODO Auto-generated method stub
-		
+		repository.delete(entity);	
 	}
 
 	@Override
 	public void deleteAll(Iterable<Usuario> entities) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteAll(entities);
 	}
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
+		repository.deleteAll();
 	}
-
 }
