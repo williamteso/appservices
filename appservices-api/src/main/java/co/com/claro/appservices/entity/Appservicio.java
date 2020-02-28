@@ -20,12 +20,12 @@ public class Appservicio implements Serializable {
 	//bi-directional many-to-one association to Aplicacion
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="FK_APLICACION_CONSUMO")
-	private Aplicacion aplicacion1;
+	private Aplicacion aplicacionConsumo;
 
 	//bi-directional many-to-one association to Aplicacion
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="FK_APLICACION_PROVEE")
-	private Aplicacion aplicacion2;
+	private Aplicacion aplicacionProvee;
 
 	//bi-directional many-to-one association to Servicio
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -43,20 +43,20 @@ public class Appservicio implements Serializable {
 		this.idAppserv = idAppserv;
 	}
 
-	public Aplicacion getAplicacion1() {
-		return this.aplicacion1;
+	public Aplicacion getAplicacionConsumo() {
+		return this.aplicacionConsumo;
 	}
 
-	public void setAplicacion1(Aplicacion aplicacion1) {
-		this.aplicacion1 = aplicacion1;
+	public void setAplicacionConsumo(Aplicacion aplicacionConsumo) {
+		this.aplicacionConsumo = aplicacionConsumo;
 	}
 
-	public Aplicacion getAplicacion2() {
-		return this.aplicacion2;
+	public Aplicacion getAplicacionProvee() {
+		return this.aplicacionProvee;
 	}
 
-	public void setAplicacion2(Aplicacion aplicacion2) {
-		this.aplicacion2 = aplicacion2;
+	public void setAplicacionProvee(Aplicacion aplicacionProvee) {
+		this.aplicacionProvee = aplicacionProvee;
 	}
 
 	public Servicio getServicio() {

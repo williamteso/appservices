@@ -26,12 +26,12 @@ public class Aplicacion implements Serializable {
 	private Object operacion;
 
 	//bi-directional many-to-one association to Appservicio
-	@OneToMany(mappedBy="aplicacion1")
-	private List<Appservicio> appservicios1;
+	@OneToMany(mappedBy="aplicacionConsumo")
+	private List<Appservicio> appserviciosConsumo;
 
 	//bi-directional many-to-one association to Appservicio
-	@OneToMany(mappedBy="aplicacion2")
-	private List<Appservicio> appservicios2;
+	@OneToMany(mappedBy="aplicacionProvee")
+	private List<Appservicio> appserviciosProvee;
 
 	public Aplicacion() {
 	}
@@ -68,48 +68,48 @@ public class Aplicacion implements Serializable {
 		this.operacion = operacion;
 	}
 
-	public List<Appservicio> getAppservicios1() {
-		return this.appservicios1;
+	public List<Appservicio> getAppserviciosConsumo() {
+		return this.appserviciosConsumo;
 	}
 
-	public void setAppservicios1(List<Appservicio> appservicios1) {
-		this.appservicios1 = appservicios1;
+	public void setAppserviciosConsumo(List<Appservicio> appserviciosConsumo) {
+		this.appserviciosConsumo = appserviciosConsumo;
 	}
 
-	public Appservicio addAppservicios1(Appservicio appservicios1) {
-		getAppservicios1().add(appservicios1);
-		appservicios1.setAplicacion1(this);
+	public Appservicio addAppserviciosConsumo(Appservicio appserviciosConsumo) {
+		getAppserviciosConsumo().add(appserviciosConsumo);
+		appserviciosConsumo.setAplicacionConsumo(this);
 
-		return appservicios1;
+		return appserviciosConsumo;
 	}
 
-	public Appservicio removeAppservicios1(Appservicio appservicios1) {
-		getAppservicios1().remove(appservicios1);
-		appservicios1.setAplicacion1(null);
+	public Appservicio removeAppserviciosConsumo(Appservicio appserviciosConsumo) {
+		getAppserviciosConsumo().remove(appserviciosConsumo);
+		appserviciosConsumo.setAplicacionConsumo(null);
 
-		return appservicios1;
+		return appserviciosConsumo;
 	}
 
-	public List<Appservicio> getAppservicios2() {
-		return this.appservicios2;
+	public List<Appservicio> getAppserviciosProvee() {
+		return this.appserviciosProvee;
 	}
 
-	public void setAppservicios2(List<Appservicio> appservicios2) {
-		this.appservicios2 = appservicios2;
+	public void setAppservicios2(List<Appservicio> appserviciosProvee) {
+		this.appserviciosProvee = appserviciosProvee;
 	}
 
-	public Appservicio addAppservicios2(Appservicio appservicios2) {
-		getAppservicios2().add(appservicios2);
-		appservicios2.setAplicacion2(this);
+	public Appservicio addAppserviciosProvee(Appservicio appserviciosProvee) {
+		getAppserviciosProvee().add(appserviciosProvee);
+		appserviciosProvee.setAplicacionProvee(this);
 
-		return appservicios2;
+		return appserviciosProvee;
 	}
 
-	public Appservicio removeAppservicios2(Appservicio appservicios2) {
-		getAppservicios2().remove(appservicios2);
-		appservicios2.setAplicacion2(null);
+	public Appservicio removeAppserviciosProvee(Appservicio appserviciosProvee) {
+		getAppserviciosProvee().remove(appserviciosProvee);
+		appserviciosProvee.setAplicacionProvee(null);
 
-		return appservicios2;
+		return appserviciosProvee;
 	}
 
 }
