@@ -43,30 +43,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		//TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-		//tokenEnhancerChain.setTokenEnhancers(Arrays.asList(infoAdicionalToken, accessTokenConverter()));
 		
-		endpoints.authenticationManager(authenticationManager)//.tokenStore(tokenStore())
-				//.accessTokenConverter(accessTokenConverter())
-				//.tokenEnhancer(tokenEnhancerChain)
+		endpoints.authenticationManager(authenticationManager)
 		.tokenStore(tokenStore);
-		//endpoints.pathMapping("/oauth/token", "/token");
 	}
-	
-	/*@Bean
-	public JwtTokenStore tokenStore() {
-		return new JwtTokenStore(accessTokenConverter());
-	}
-
-	@Bean
-	public JwtAccessTokenConverter accessTokenConverter() {
-		JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-		// ----------------- PARA USAR SOLO FRASE SECRETA ------------------ //
-		//jwtAccessTokenConverter.setSigningKey(JwtConfig.LLAVE_SECRETA); // generación de token con palabra secreta tipo MAC.
-		// ----------------- PARA USAR CERTIFICADOS RSA -------------------- //
-		jwtAccessTokenConverter.setSigningKey(JwtConfig.RSA_PRIVATE);
-		jwtAccessTokenConverter.setVerifierKey(JwtConfig.RSA_PUBLICA);
-		return jwtAccessTokenConverter;
-	}*/
 
 }
