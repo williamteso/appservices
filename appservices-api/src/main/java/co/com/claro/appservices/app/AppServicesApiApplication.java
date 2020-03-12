@@ -14,9 +14,6 @@ public class AppServicesApiApplication implements CommandLineRunner {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AppServicesApiApplication.class);
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-
 	@Value("${spring.datasource.url}")
 	public String urlDb;
 
@@ -30,12 +27,5 @@ public class AppServicesApiApplication implements CommandLineRunner {
 		LOGGER.info("=======================================");
 
 		LOGGER.info("url de la bd: ".concat(urlDb));
-
-		String password = "6WUpuHzGkEYa1YnOM0lXqDe8e0hx9cFn";
-
-		for(int i = 0; i < 4; i++) {
-			String passwordBcrypt = passwordEncoder.encode(password);
-			System.out.println(passwordBcrypt);
-		}
 	}
 }
