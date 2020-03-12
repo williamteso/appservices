@@ -1,10 +1,11 @@
 package co.com.claro.appservices.app.models.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "TIPO_METODO")
+@Table(name = "SERV_TIPO_METODO")
 public class TipoMetodo {
 
     @Id
@@ -17,10 +18,11 @@ public class TipoMetodo {
     @Lob
     private Byte[] response;
     @JoinColumn(name = "ID_METODO")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Metodo.class)
     private List<Metodo> metodos;
 
     public TipoMetodo() {
-
+        this.metodos = new ArrayList<>();
     }
 
     public Long getIdTipoMetodo() {

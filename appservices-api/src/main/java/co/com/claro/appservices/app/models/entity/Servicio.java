@@ -1,9 +1,10 @@
 package co.com.claro.appservices.app.models.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "SERVICIO")
+@Table(name = "SERV_SERVICIO")
 public class Servicio {
 
     @Id
@@ -21,8 +22,17 @@ public class Servicio {
     @Column(name = "URL_DES")
     private String urlDes;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "FECHA_CREACION")
+    private Date fechaCreacion;
+
     public Servicio() {
 
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.fechaCreacion = new Date();
     }
 
     public Long getIdServicio() {

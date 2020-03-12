@@ -1,10 +1,11 @@
 package co.com.claro.appservices.app.models.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "METODO")
+@Table(name = "SERV_METODO")
 public class Metodo {
 
     @Id
@@ -16,11 +17,11 @@ public class Metodo {
     private String nombreMetodo;
     private String descripcion;
     @JoinColumn(name = "ID_SERVICIO")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Servicio.class)
     private List<Servicio> servicios;
 
     public Metodo() {
-
+        this.servicios = new ArrayList<>();
     }
 
     public Long getIdMetodo() {

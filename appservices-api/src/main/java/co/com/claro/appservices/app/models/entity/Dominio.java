@@ -1,10 +1,11 @@
 package co.com.claro.appservices.app.models.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "DOMINIO")
+@Table(name = "SERV_DOMINIO")
 public class Dominio {
 
     @Id
@@ -16,12 +17,12 @@ public class Dominio {
     private String nombreDominio;
     @Column(name = "DOMINIO_DESPLIEGUE")
     private String dominioDespliegue;
-    @JoinColumn(name = "id_area")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_AREA")
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Area.class)
     private List<Area> areas;
 
     public Dominio() {
-
+        this.areas = new ArrayList<>();
     }
 
     public Long getIdDominio() {

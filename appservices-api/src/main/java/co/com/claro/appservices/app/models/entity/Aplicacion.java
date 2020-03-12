@@ -3,7 +3,7 @@ package co.com.claro.appservices.app.models.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "APLICACION")
+@Table(name = "SERV_APLICACION")
 public class Aplicacion {
 
     @Id

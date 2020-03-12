@@ -1,10 +1,11 @@
 package co.com.claro.appservices.app.models.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "APP_SERVICIO")
+@Table(name = "SERV_APP_SERVICIO")
 public class AppServicio {
 
     @Id
@@ -13,17 +14,19 @@ public class AppServicio {
     @Column(name = "ID_APPSERV")
     private Long idAppServ;
     @JoinColumn(name = "ID_SERVICIO")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Servicio.class)
     private List<Servicio> servicios;
-    @JoinColumn(name = "ID_APLICACION_PROVEE")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_APLICACION_PROVEE", referencedColumnName = "ID_APLICACION")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Aplicacion.class)
     private List<Aplicacion> aplicacionesProvee;
-    @JoinColumn(name = "ID_APLICACION_CONSUMO")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_APLICACION_CONSUMO", referencedColumnName = "ID_APLICACION")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Aplicacion.class)
     private List<Aplicacion> aplicacionesConsumo;
 
     public AppServicio() {
-
+        this.aplicacionesConsumo = new ArrayList<>();
+        this.aplicacionesProvee = new ArrayList<>();
+        this.servicios = new ArrayList<>();
     }
 
     public Long getIdAppServ() {
