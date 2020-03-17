@@ -1,4 +1,4 @@
-package co.com.claro.appservices.app.services;
+package co.com.claro.appservices.app.services.impl;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;

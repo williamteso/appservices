@@ -1,10 +1,11 @@
-package co.com.claro.appservices.app.services;
+package co.com.claro.appservices.app.services.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import co.com.claro.appservices.app.models.entity.auth.Usuario;
 import co.com.claro.appservices.app.models.repository.UsuarioRepository;
+import co.com.claro.appservices.app.services.IUsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

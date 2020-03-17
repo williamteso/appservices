@@ -1,4 +1,4 @@
-package co.com.claro.appservices.app.services;
+package co.com.claro.appservices.app.services.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -15,13 +15,14 @@ public class Metodo {
     private Long idMetodo;
     @Column(name = "NOMBRE_METODO")
     private String nombreMetodo;
+    @Column(length = 1100)
     private String descripcion;
     @JoinColumn(name = "ID_SERVICIO")
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Servicio.class)
-    private List<Servicio> servicios;
+    private Servicio servicio;
 
     public Metodo() {
-        this.servicios = new ArrayList<>();
+
     }
 
     public Long getIdMetodo() {
@@ -48,11 +49,11 @@ public class Metodo {
         this.descripcion = descripcion;
     }
 
-    public List<Servicio> getServicios() {
-        return servicios;
+    public Servicio getServicio() {
+        return servicio;
     }
 
-    public void setServicios(List<Servicio> servicios) {
-        this.servicios = servicios;
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
     }
 }
