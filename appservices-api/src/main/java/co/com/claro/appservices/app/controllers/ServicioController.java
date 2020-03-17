@@ -6,6 +6,7 @@ import co.com.claro.appservices.app.models.entity.Servicio;
 import co.com.claro.appservices.app.services.IServicioService;
 import co.com.claro.appservices.app.services.impl.ServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -35,6 +36,11 @@ public class ServicioController {
     @GetMapping
     public ResponseEntity<?> obtenerServicios() {
         return ResponseEntity.ok(service.findAllServicios());
+    }
+
+    @GetMapping("/pagina")
+    public ResponseEntity<?> obtenerServicios(Pageable pageable) {
+        return ResponseEntity.ok(service.findAllServicios(pageable));
     }
 
     @PutMapping("/{idServicio}")

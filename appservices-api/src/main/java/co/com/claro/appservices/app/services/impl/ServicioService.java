@@ -5,6 +5,8 @@ import co.com.claro.appservices.app.models.entity.Servicio;
 import co.com.claro.appservices.app.models.repository.ServicioRepository;
 import co.com.claro.appservices.app.services.IServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,11 @@ public class ServicioService implements IServicioService {
     @Transactional(readOnly = true)
     public List<Servicio> findAllServicios() {
         return (List<Servicio>) repository.findAll();
+    }
+
+    @Override
+    public Page<Servicio> findAllServicios(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
