@@ -26,6 +26,15 @@ public class ServicioService implements IServicioService {
     }
 
     @Override
+    public Servicio obtenerServicioPorId(Long idServicio) {
+        Optional<Servicio> o = repository.findById(idServicio);
+        if (!(o.isPresent())) {
+            throw new NotFoundException("Servicio no encontrado");
+        }
+        return o.get();
+    }
+
+    @Override
     public Page<Servicio> findAllServicios(Pageable pageable) {
         return repository.findAll(pageable);
     }
@@ -63,5 +72,10 @@ public class ServicioService implements IServicioService {
         }
 
         repository.deleteById(idServicio);
+    }
+
+    @Override
+    public Page<Servicio> findServicioLikeNombreServicio(String termino, Pageable pageable) {
+        return repository.findServicioLikeNombreServicio(termino, pageable);
     }
 }

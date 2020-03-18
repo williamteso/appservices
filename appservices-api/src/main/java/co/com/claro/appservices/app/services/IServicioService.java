@@ -11,6 +11,8 @@ public interface IServicioService {
 
     public List<Servicio> findAllServicios();
 
+    public Servicio obtenerServicioPorId(Long idServicio);
+
     public Page<Servicio> findAllServicios(Pageable pageable);
 
     public Servicio saveServicio(Servicio servicio);
@@ -18,4 +20,6 @@ public interface IServicioService {
     public Servicio updateServicio(Long idServicio, Servicio servicio)  throws NotFoundException;
 
     public void deleteServicio(Long idServicio);
+
+    public Page<Servicio> findServicioLikeNombreServicio(String termino, Pageable pageable);
 }

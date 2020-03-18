@@ -38,6 +38,16 @@ public class ServicioController {
         return ResponseEntity.ok(service.findAllServicios());
     }
 
+    @GetMapping("/{idServicio}")
+    public ResponseEntity<?> obtenerServicioPorId(@PathVariable Long idServicio) {
+        return ResponseEntity.ok(service.obtenerServicioPorId(idServicio));
+    }
+
+    @GetMapping("/termino/{termino}")
+    public ResponseEntity<?> obtenerServicioLikeNombreServicio(@PathVariable String termino, Pageable pageable) {
+        return ResponseEntity.ok(service.findServicioLikeNombreServicio(termino, pageable));
+    }
+
     @GetMapping("/pagina")
     public ResponseEntity<?> obtenerServicios(Pageable pageable) {
         return ResponseEntity.ok(service.findAllServicios(pageable));
