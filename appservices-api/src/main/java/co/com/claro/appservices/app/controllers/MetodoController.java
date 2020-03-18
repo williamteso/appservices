@@ -5,6 +5,7 @@ import co.com.claro.appservices.app.exceptions.NotFoundException;
 import co.com.claro.appservices.app.models.entity.Metodo;
 import co.com.claro.appservices.app.services.IMetodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -31,6 +32,11 @@ public class MetodoController {
     @GetMapping("/servicio/{idServicio}")
     public ResponseEntity<?> obtenerMetodosPorIdServicio(@PathVariable Long idServicio) throws NotFoundException {
         return ResponseEntity.ok(service.obtenerMetodosPorIdServicio(idServicio));
+    }
+
+    @GetMapping("/servicio/{idServicio}/pagina")
+    public ResponseEntity<?> obtenerMetodosPorIdServicio(@PathVariable Long idServicio, Pageable pageable) throws NotFoundException {
+        return ResponseEntity.ok(service.obtenerMetodosPorIdServicioPageable(idServicio, pageable));
     }
 
     @GetMapping("/{idMetodo}")

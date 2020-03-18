@@ -1,11 +1,14 @@
 package co.com.claro.appservices.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "SERV_METODO")
+@JsonIgnoreProperties(value = { "servicio" })
 public class Metodo {
 
     @Id
@@ -19,6 +22,7 @@ public class Metodo {
     private String descripcion;
     @JoinColumn(name = "ID_SERVICIO")
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Servicio.class)
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer"}, allowSetters = true)
     private Servicio servicio;
 
     public Metodo() {

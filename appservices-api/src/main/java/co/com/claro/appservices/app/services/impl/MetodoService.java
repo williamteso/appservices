@@ -7,6 +7,8 @@ import co.com.claro.appservices.app.models.repository.MetodoRepository;
 import co.com.claro.appservices.app.models.repository.ServicioRepository;
 import co.com.claro.appservices.app.services.IMetodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,17 @@ public class MetodoService implements IMetodoService {
         }
         return lMetodo;
 
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Metodo> obtenerMetodosPorIdServicioPageable(Long idServicio, Pageable pageable) throws NotFoundException {
+        Optional<Servicio> o = servicioRepository.findById(idServicio);
+
+        if (!(o.isPresent())) {
+            throw new NotFoundException("El idServicio ".concat(idServicio.toString()).concat(" No existe!!!"));
+        }
+        return metodoRepository.encontrarMetodoPorIdServicioPageable(idServicio, pageable);
     }
 
     @Override

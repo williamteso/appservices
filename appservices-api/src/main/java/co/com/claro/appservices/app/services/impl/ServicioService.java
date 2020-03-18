@@ -26,6 +26,7 @@ public class ServicioService implements IServicioService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Servicio obtenerServicioPorId(Long idServicio) {
         Optional<Servicio> o = repository.findById(idServicio);
         if (!(o.isPresent())) {
@@ -35,6 +36,7 @@ public class ServicioService implements IServicioService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<Servicio> findAllServicios(Pageable pageable) {
         return repository.findAll(pageable);
     }
@@ -75,6 +77,7 @@ public class ServicioService implements IServicioService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<Servicio> findServicioLikeNombreServicio(String termino, Pageable pageable) {
         return repository.findServicioLikeNombreServicio(termino, pageable);
     }
